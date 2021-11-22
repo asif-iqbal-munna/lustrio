@@ -25,8 +25,10 @@ const Header = () => {
     navItem: {
       color: " #fff",
       textDecoration: "none",
-      padding: " 8px 16px",
-      marginRight: "10px",
+      padding: "6px 12px",
+      marginRight: "6px",
+      fontSize: "16px",
+      fontWeight: "700",
     },
     navIcon: {
       [theme.breakpoints.up("sm")]: {
@@ -99,7 +101,9 @@ const Header = () => {
               sx={{ flexGrow: 1, fontWeight: "bold" }}
               className={navLogo}
             >
-              Lustrio
+              <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
+                Lustrio
+              </Link>
             </Typography>
             <Box sx={{ display: "flex" }} className={navMenu}>
               <Link className={navItem} to="/about">
