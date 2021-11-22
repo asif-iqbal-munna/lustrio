@@ -130,7 +130,7 @@ const Banner = () => {
                 Motel Front Pool
               </Typography>
               <Typography variant="h4" gutterBottom>
-                Own Class
+                Our Class
               </Typography>
               <Typography variant="h1" gutterBottom>
                 45% OFF
