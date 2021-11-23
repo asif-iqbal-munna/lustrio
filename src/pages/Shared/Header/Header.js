@@ -9,6 +9,7 @@ import {
   ListItemText,
   Divider,
   Drawer,
+  Button,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
@@ -106,12 +107,21 @@ const Header = () => {
               </Link>
             </Typography>
             <Box sx={{ display: "flex" }} className={navMenu}>
-              <Link className={navItem} to="/about">
-                About
-              </Link>
-              <Link className={navItem} to="/contact">
-                Contact
-              </Link>
+              <Button>
+                <Link className={navItem} to="/about">
+                  About
+                </Link>
+              </Button>
+              <Button>
+                <Link className={navItem} to="/contact">
+                  Contact
+                </Link>
+              </Button>
+              <Button variant="outlined" color="secondary" size="small">
+                <Link className={navItem} to="/login">
+                  Login
+                </Link>
+              </Button>
             </Box>
           </Toolbar>
         </AppBar>
