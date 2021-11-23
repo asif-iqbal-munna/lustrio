@@ -68,16 +68,12 @@ const Banner = () => {
                 color: "#fff",
               }}
             >
-              <Typography variant="h2" gutterBottom>
-                Luxury Hotel
-              </Typography>
-              <Typography variant="h4" gutterBottom>
+              <Typography variant="h2">Luxury Hotel</Typography>
+              <Typography variant="h4" sx={{ my: 2 }}>
                 Own Styles
               </Typography>
-              <Typography variant="h1" gutterBottom>
-                30% OFF
-              </Typography>
-              <Button variant="contained" gutterBottom>
+              <Typography variant="h1">30% OFF</Typography>
+              <Button variant="contained" sx={{ mt: 2 }}>
                 Book Now
               </Button>
             </Box>
@@ -98,16 +94,14 @@ const Banner = () => {
                 color: "#fff",
               }}
             >
-              <Typography variant="h2" gutterBottom>
-                Beach Resort
-              </Typography>
-              <Typography variant="h4" gutterBottom>
+              <Typography variant="h2">Beach Resort</Typography>
+              <Typography variant="h4" sx={{ my: 2 }}>
                 Mega Offer
               </Typography>
-              <Typography variant="h1" gutterBottom>
-                50% OFF
-              </Typography>
-              <Button variant="contained">Book Now</Button>
+              <Typography variant="h1">50% OFF</Typography>
+              <Button variant="contained" sx={{ mt: 2 }}>
+                Book Now
+              </Button>
             </Box>
           </Box>
         </Grid>
@@ -126,16 +120,14 @@ const Banner = () => {
                 color: "#fff",
               }}
             >
-              <Typography variant="h2" gutterBottom>
-                Motel Front Pool
-              </Typography>
-              <Typography variant="h4" gutterBottom>
+              <Typography variant="h2">Motel Front Pool</Typography>
+              <Typography variant="h4" sx={{ my: 2 }}>
                 Our Class
               </Typography>
-              <Typography variant="h1" gutterBottom>
-                45% OFF
-              </Typography>
-              <Button variant="contained">Book Now</Button>
+              <Typography variant="h1">45% OFF</Typography>
+              <Button variant="contained" sx={{ mt: 2 }}>
+                Book Now
+              </Button>
             </Box>
           </Box>
         </Grid>

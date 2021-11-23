@@ -11,6 +11,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
 import aboutImg from "../../../images/about-img.jpg";
+import bestImg from "../../../images/best-img.jpg";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
@@ -21,6 +22,7 @@ import PinDropIcon from "@mui/icons-material/PinDrop";
 const About = () => {
   return (
     <>
+      {/* About Section */}
       <Container sx={{ mt: 15 }}>
         <Grid container spacing={8}>
           <Grid item xs={12} md={7}>
@@ -51,6 +53,8 @@ const About = () => {
           </Grid>
         </Grid>
       </Container>
+
+      {/* Our Best Section */}
       <Container sx={{ mt: 8 }}>
         <Grid container spacing={8}>
           <Grid item xs={12} md={5}>
@@ -129,7 +133,7 @@ const About = () => {
             </Box>
           </Grid>
           <Grid item xs={12} md={7}>
-            <img src={aboutImg} alt="Hotel" width="100%" height="350px" />
+            <img src={bestImg} alt="Hotel" width="100%" height="350px" />
           </Grid>
         </Grid>
       </Container>

@@ -16,6 +16,10 @@ const Category = () => {
       height: "100%",
       backgroundColor: "rgba(45, 58, 75, .4)",
       backgroundBlendMode: "darken, luminosity",
+      transition: "ease-out .5s",
+      "&:hover": {
+        transform: "scale(1.05)",
+      },
     },
     categoryBg2: {
       background: "url(https://i.ibb.co/4gyQ6CV/sylhet-sidebar.jpg)",
@@ -26,6 +30,10 @@ const Category = () => {
       height: "195px",
       backgroundColor: "rgba(45, 58, 75, .4)",
       backgroundBlendMode: "darken, luminosity",
+      transition: "ease-out .5s",
+      "&:hover": {
+        transform: "scale(1.05)",
+      },
     },
     categoryBg3: {
       background: "url(https://i.ibb.co/Y0Mp8Bx/amiakhum.jpg)",
@@ -36,6 +44,10 @@ const Category = () => {
       height: "192px",
       backgroundColor: "rgba(45, 58, 75, .4)",
       backgroundBlendMode: "darken, luminosity",
+      transition: "ease-out .5s",
+      "&:hover": {
+        transform: "scale(1.05)",
+      },
     },
     categoryBg4: {
       background:
@@ -47,6 +59,10 @@ const Category = () => {
       height: "192px",
       backgroundColor: "rgba(45, 58, 75, .4)",
       backgroundBlendMode: "darken, luminosity",
+      transition: "ease-out .5s",
+      "&:hover": {
+        transform: "scale(1.05)",
+      },
     },
   });
 
