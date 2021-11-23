@@ -1,10 +1,14 @@
 import React from "react";
+import Header from "../Shared/Header/Header";
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Contact</h1>
-    </div>
+    <>
+      <Header />
+      <div>
+        <h1>Contact</h1>
+      </div>
+    </>
   );
 };
 

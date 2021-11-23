@@ -24,7 +24,7 @@ const HotelsHome = () => {
   return (
     <Container>
       <Grid container sx={{ mt: 15 }} spacing={4}>
-        {hotels.map((hotel) => (
+        {hotels.slice(0, 8).map((hotel) => (
           <Grid key={hotel?._id} item xs={6} sm={4} md={3}>
             <Card sx={{ maxWidth: 345 }}>
               <CardMedia
@@ -38,9 +38,9 @@ const HotelsHome = () => {
                   {hotel?.name}
                 </Typography>
                 <Typography variant="body2" color="h3">
-                  Starts from $
+                  Starts from
                   <Box component="span" sx={{ fontSize: "22px" }}>
-                    {hotel?.price?.couple}
+                    &nbsp; ${hotel?.price}
                   </Box>{" "}
                   /night
                 </Typography>

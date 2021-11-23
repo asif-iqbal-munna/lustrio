@@ -6,6 +6,8 @@ import { teal, indigo } from "@mui/material/colors";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import HotelDetails from "./pages/HotelDetails/HotelDetails";
+import Login from "./pages/Authentication/Login/Login";
+import Register from "./pages/Authentication/Register/Register";
 
 const theme = createTheme({
   palette: {
@@ -76,6 +78,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/hotels/:id" element={<HotelDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
     </ThemeProvider>
