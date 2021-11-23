@@ -19,7 +19,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 
-const About = () => {
+const HomeAbout = () => {
   return (
     <>
       {/* About Section */}
@@ -141,4 +141,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default HomeAbout;

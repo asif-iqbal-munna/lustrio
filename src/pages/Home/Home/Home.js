@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "../../Shared/Header/Header";
-import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
+import HotelsHome from "../HotelsHome/HotelsHome";
+import HomeAbout from "../HomeAbout/HomeAbout";
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
       <Header />
       <Banner />
       <Category />
-      <About />
+      <HomeAbout />
+      <HotelsHome />
       <h1>Home</h1>
     </div>
   );
