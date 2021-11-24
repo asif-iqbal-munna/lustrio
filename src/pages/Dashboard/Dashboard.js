@@ -21,6 +21,7 @@ import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import PaymentIcon from "@mui/icons-material/Payment";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const drawerWidth = 180;
 
@@ -159,6 +160,14 @@ const Dashboard = () => {
                 <PaymentIcon sx={{ color: " #3949AB" }} />
               </ListItemIcon>
               <ListItemText>Pay</ListItemText>
+            </ListItem>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/dashboard/makeadmin">
+            <ListItem button>
+              <ListItemIcon>
+                <AdminPanelSettingsIcon sx={{ color: " #3949AB" }} />
+              </ListItemIcon>
+              <ListItemText>Make Admin</ListItemText>
             </ListItem>
           </Link>
         </List>

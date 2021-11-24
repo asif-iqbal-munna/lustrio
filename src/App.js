@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Bookings from "./pages/Dashboard/Bookings/Bookings";
 import Feedback from "./pages/Dashboard/Feedback/Feedback";
 import Pay from "./pages/Dashboard/Pay/Pay";
+import MakeAdmin from "./pages/Dashboard/MakeAdmin.js/MakeAdmin";
 
 const theme = createTheme({
   palette: {
@@ -105,6 +106,7 @@ function App() {
               <Route path="/dashboard" element={<Bookings />} />
               <Route path="/dashboard/feedback" element={<Feedback />} />
               <Route path="/dashboard/pay" element={<Pay />} />
+              <Route path="/dashboard/makeadmin" element={<MakeAdmin />} />
             </Route>
           </Routes>
         </Router>

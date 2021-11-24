@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   GoogleAuthProvider,
   getAuth,
@@ -6,6 +7,7 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -25,6 +27,18 @@ const useFirebase = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        saveUser(email, name, "post");
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
         Swal.fire({
           icon: "success",
           title: "Yoo!",
@@ -77,6 +91,7 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
+        saveUser(user.email, user.displayName, "put");
         setError("");
         Swal.fire({
           icon: "success",
@@ -119,6 +134,17 @@ const useFirebase = () => {
       .then(() => {})
       .catch((error) => {})
       .finally(() => setLoading(false));
+  };
+
+  const saveUser = (email, displayName, method) => {
+    axios({
+      method: method,
+      url: "http://localhost:8000/users",
+      data: {
+        email,
+        displayName,
+      },
+    }).then();
   };
 
   return {
