@@ -75,10 +75,22 @@ const useFirebase = () => {
       .then((result) => {
         const user = result.user;
         setError("");
+        Swal.fire({
+          icon: "success",
+          title: "Yoo!",
+          text: "You Have Successfully Logged In",
+          confirmButtonText: "Ok",
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
+        Swal.fire({
+          icon: "error",
+          title: "Oops!",
+          text: errorMessage,
+          confirmButtonText: "Try Again",
+        });
       })
       .finally(() => setLoading(false));
   };
@@ -97,9 +109,11 @@ const useFirebase = () => {
   }, [auth]);
 
   const logOut = () => {
+    setLoading(true);
     signOut(auth)
       .then(() => {})
-      .catch((error) => {});
+      .catch((error) => {})
+      .finally(() => setLoading(false));
   };
 
   return {

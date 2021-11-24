@@ -10,13 +10,16 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import HomeIcon from "@mui/icons-material/Home";
+import LogoutIcon from "@mui/icons-material/Logout";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MailIcon from "@mui/icons-material/Mail";
+import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { makeStyles } from "@mui/styles";
 
 const drawerWidth = 240;
 
@@ -85,6 +88,19 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+const useStyle = makeStyles({
+  navItem: {
+    color: " #fff",
+    textDecoration: "none",
+    padding: "6px 12px",
+    marginRight: "6px",
+    fontSize: "16px",
+    fontWeight: "700",
+  },
+});
+
+const { navItem } = useStyle;
+
 const Dashboard = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -96,6 +112,8 @@ const Dashboard = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const { logOut } = useAuth();
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -133,18 +151,28 @@ const Dashboard = () => {
         <List>
           <ListItem button>
             <ListItemIcon>
-              <MailIcon />
+              <MailIcon sx={{ color: " #3949AB" }} />
             </ListItemIcon>
             <ListItemText>menu</ListItemText>
           </ListItem>
         </List>
         <Divider />
         <List>
+          <ListItem button onClick={logOut}>
+            <ListItemIcon>
+              <LogoutIcon sx={{ color: " #3949AB" }} />
+            </ListItemIcon>
+            <ListItemText> Log Out</ListItemText>
+          </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <MailIcon />
+              <HomeIcon sx={{ color: " #3949AB" }} />
             </ListItemIcon>
-            <ListItemText>menu</ListItemText>
+            <ListItemText>
+              <Link style={{ textDecoration: "none" }} to="/contact">
+                Home
+              </Link>
+            </ListItemText>
           </ListItem>
         </List>
       </Drawer>
