@@ -16,10 +16,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import MailIcon from "@mui/icons-material/Mail";
-import { Link } from "react-router-dom";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { makeStyles } from "@mui/styles";
+import ReviewsIcon from "@mui/icons-material/Reviews";
+import PaymentIcon from "@mui/icons-material/Payment";
 
 const drawerWidth = 240;
 
@@ -88,19 +89,6 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const useStyle = makeStyles({
-  navItem: {
-    color: " #fff",
-    textDecoration: "none",
-    padding: "6px 12px",
-    marginRight: "6px",
-    fontSize: "16px",
-    fontWeight: "700",
-  },
-});
-
-const { navItem } = useStyle;
-
 const Dashboard = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -149,12 +137,30 @@ const Dashboard = () => {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem button>
-            <ListItemIcon>
-              <MailIcon sx={{ color: " #3949AB" }} />
-            </ListItemIcon>
-            <ListItemText>menu</ListItemText>
-          </ListItem>
+          <Link style={{ textDecoration: "none" }} to="/dashboard">
+            <ListItem button>
+              <ListItemIcon>
+                <CalendarTodayIcon sx={{ color: " #3949AB" }} />
+              </ListItemIcon>
+              <ListItemText>Bookings</ListItemText>
+            </ListItem>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/dashboard/feedback">
+            <ListItem button>
+              <ListItemIcon>
+                <ReviewsIcon sx={{ color: " #3949AB" }} />
+              </ListItemIcon>
+              <ListItemText>Feedback</ListItemText>
+            </ListItem>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/dashboard/pay">
+            <ListItem button>
+              <ListItemIcon>
+                <PaymentIcon sx={{ color: " #3949AB" }} />
+              </ListItemIcon>
+              <ListItemText>Pay</ListItemText>
+            </ListItem>
+          </Link>
         </List>
         <Divider />
         <List>
@@ -164,49 +170,19 @@ const Dashboard = () => {
             </ListItemIcon>
             <ListItemText> Log Out</ListItemText>
           </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon sx={{ color: " #3949AB" }} />
-            </ListItemIcon>
-            <ListItemText>
-              <Link style={{ textDecoration: "none" }} to="/contact">
-                Home
-              </Link>
-            </ListItemText>
-          </ListItem>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <ListItem button>
+              <ListItemIcon>
+                <HomeIcon sx={{ color: " #3949AB" }} />
+              </ListItemIcon>
+              <ListItemText>Home</ListItemText>
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        <Outlet />
       </Box>
     </Box>
   );

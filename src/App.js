@@ -11,6 +11,9 @@ import Register from "./pages/Authentication/Register/Register";
 import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./pages/Authentication/PrivateRoute/PrivateRoute";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Bookings from "./pages/Dashboard/Bookings/Bookings";
+import Feedback from "./pages/Dashboard/Feedback/Feedback";
+import Pay from "./pages/Dashboard/Pay/Pay";
 
 const theme = createTheme({
   palette: {
@@ -98,7 +101,11 @@ function App() {
                   <Dashboard />
                 </PrivateRoute>
               }
-            />
+            >
+              <Route path="/dashboard" element={<Bookings />} />
+              <Route path="/dashboard/feedback" element={<Feedback />} />
+              <Route path="/dashboard/pay" element={<Pay />} />
+            </Route>
           </Routes>
         </Router>
       </AuthProvider>

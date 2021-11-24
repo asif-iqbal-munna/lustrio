@@ -13,7 +13,6 @@ const Home = () => {
       <Category />
       <HomeAbout />
       <HotelsHome />
-      <h1>Home</h1>
     </div>
   );
 };

@@ -1,16 +1,25 @@
 import React from "react";
-import { Button, CircularProgress, Container, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  Container,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
   const { googleSignIn, registerUser, loading } = useAuth();
+
+  const location = useLocation();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
-    registerUser(data.name, data.email, data.password);
+    registerUser(data.name, data.email, data.password, navigate);
     reset();
   };
 
@@ -64,6 +73,7 @@ const Register = () => {
                 fullWidth
                 margin="dense"
                 variant="filled"
+                helperText="Password Must Be At Least 6 Characters"
                 autoComplete=" current-password"
                 {...register("password")}
               />
@@ -85,7 +95,7 @@ const Register = () => {
                 }}
               >
                 <Button
-                  onClick={googleSignIn}
+                  onClick={() => googleSignIn(location, navigate)}
                   sx={{ mb: 2 }}
                   variant="contained"
                   color="secondary"

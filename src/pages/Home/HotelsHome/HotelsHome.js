@@ -17,7 +17,7 @@ const HotelsHome = () => {
   const [hotels, setHotels] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/hotels")
+      .get("https://tranquil-cove-40150.herokuapp.com/hotels")
       .then((res) => setHotels(res.data));
   }, []);
 

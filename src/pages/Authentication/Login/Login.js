@@ -8,16 +8,19 @@ import {
 import { Box } from "@mui/system";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { loading, googleSignIn, loginUser } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    loginUser(data.email, data.password);
+    loginUser(data.email, data.password, location, navigate);
+    reset();
   };
 
   return (
@@ -62,6 +65,7 @@ const Login = () => {
                 margin="dense"
                 autoComplete=" current-password"
                 variant="filled"
+                helperText="Your 6 Characters Password"
                 {...register("password")}
               />
               <Button variant="contained" sx={{ mt: 2 }} type="submit">
@@ -82,7 +86,7 @@ const Login = () => {
                 }}
               >
                 <Button
-                  onClick={googleSignIn}
+                  onClick={() => googleSignIn(location, navigate)}
                   sx={{ mb: 2 }}
                   variant="contained"
                   color="secondary"

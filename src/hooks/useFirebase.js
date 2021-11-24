@@ -19,7 +19,7 @@ const useFirebase = () => {
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
 
-  const registerUser = (name, email, password) => {
+  const registerUser = (name, email, password, navigate) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -31,6 +31,7 @@ const useFirebase = () => {
           text: "You Have Successfully Registered",
           confirmButtonText: "Cool",
         });
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -44,7 +45,7 @@ const useFirebase = () => {
       .finally(() => setLoading(false));
   };
 
-  const loginUser = (email, password) => {
+  const loginUser = (email, password, location, navigate) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -55,6 +56,8 @@ const useFirebase = () => {
           text: "You Have Successfully Logged In",
           confirmButtonText: "Ok",
         });
+        const redirectURI = location.state?.from || "/";
+        navigate(redirectURI);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -69,7 +72,7 @@ const useFirebase = () => {
   };
 
   const googleProvider = new GoogleAuthProvider();
-  const googleSignIn = () => {
+  const googleSignIn = (location, navigate) => {
     setLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -81,6 +84,8 @@ const useFirebase = () => {
           text: "You Have Successfully Logged In",
           confirmButtonText: "Ok",
         });
+        const redirectURI = location.state?.from || "/";
+        navigate(redirectURI);
       })
       .catch((error) => {
         const errorMessage = error.message;

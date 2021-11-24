@@ -1,4 +1,4 @@
-import { CircularProgress, Skeleton } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { Navigate, useLocation } from "react-router";
