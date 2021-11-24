@@ -62,10 +62,10 @@ const Header = () => {
   const [openDrawer, setOpenDrawer] = React.useState(false);
 
   const list = (
-    <Box sx={{ width: 250 }} role="presentation">
+    <Box sx={{ width: 180 }} role="presentation">
       <List>
         <ListItem button>
-          <ListItemIcon>
+          <ListItemIcon sx={{ minWidth: "30px" }}>
             <FeedIcon sx={{ color: " #3949AB" }} />
           </ListItemIcon>
           <ListItemText>
@@ -75,7 +75,7 @@ const Header = () => {
           </ListItemText>
         </ListItem>
         <ListItem button>
-          <ListItemIcon>
+          <ListItemIcon sx={{ minWidth: "30px" }}>
             <ContactsIcon sx={{ color: " #3949AB" }} />
           </ListItemIcon>
           <ListItemText>
@@ -90,7 +90,7 @@ const Header = () => {
         </ListItem>
         {!user?.email && (
           <ListItem button>
-            <ListItemIcon>
+            <ListItemIcon sx={{ minWidth: "30px" }}>
               <LoginIcon sx={{ color: " #3949AB" }} />
             </ListItemIcon>
             <ListItemText>
@@ -110,7 +110,7 @@ const Header = () => {
         {user.email && (
           <>
             <ListItem button>
-              <ListItemIcon>
+              <ListItemIcon sx={{ minWidth: "30px" }}>
                 <DashboardIcon sx={{ color: " #3949AB" }} />
               </ListItemIcon>
               <ListItemText>
@@ -124,7 +124,7 @@ const Header = () => {
               </ListItemText>
             </ListItem>
             <ListItem button onClick={logOut}>
-              <ListItemIcon>
+              <ListItemIcon sx={{ minWidth: "30px" }}>
                 <LogoutIcon sx={{ color: " #3949AB" }} />
               </ListItemIcon>
               <ListItemText>Log Out</ListItemText>

@@ -22,7 +22,7 @@ import useAuth from "../../hooks/useAuth";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import PaymentIcon from "@mui/icons-material/Payment";
 
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
