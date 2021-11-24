@@ -8,6 +8,9 @@ import Contact from "./pages/Contact/Contact";
 import HotelDetails from "./pages/HotelDetails/HotelDetails";
 import Login from "./pages/Authentication/Login/Login";
 import Register from "./pages/Authentication/Register/Register";
+import AuthProvider from "./context/AuthProvider";
+import PrivateRoute from "./pages/Authentication/PrivateRoute/PrivateRoute";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const theme = createTheme({
   palette: {
@@ -71,17 +74,27 @@ theme.typography.h1 = {
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/hotels/:id" element={<HotelDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/hotels/:id"
+              element={
+                <PrivateRoute>
+                  <HotelDetails />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </Router>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

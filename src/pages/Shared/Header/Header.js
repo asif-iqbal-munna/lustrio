@@ -16,9 +16,13 @@ import { Box } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
 import React from "react";
 import { Link } from "react-router-dom";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import useAuth from "../../../hooks/useAuth";
+import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import FeedIcon from "@mui/icons-material/Feed";
 
 const Header = () => {
   const theme = useTheme();
@@ -51,6 +55,8 @@ const Header = () => {
     },
   });
 
+  const { user, logOut } = useAuth();
+
   const { navItem, navIcon, iconColor, navMenu, navLogo } = useStyle();
 
   const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -58,25 +64,73 @@ const Header = () => {
   const list = (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
+        <ListItem button>
+          <ListItemIcon>
+            <FeedIcon sx={{ color: " #3949AB" }} />
+          </ListItemIcon>
+          <ListItemText>
+            <Link style={{ color: "#3949AB" }} className={navItem} to="/about">
+              About
+            </Link>
+          </ListItemText>
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <ContactsIcon sx={{ color: " #3949AB" }} />
+          </ListItemIcon>
+          <ListItemText>
+            <Link
+              style={{ color: "#3949AB" }}
+              className={navItem}
+              to="/contact"
+            >
+              Contact
+            </Link>
+          </ListItemText>
+        </ListItem>
+        {!user?.email && (
+          <ListItem button>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <LoginIcon sx={{ color: " #3949AB" }} />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText>
+              <Link
+                style={{ color: "#3949AB" }}
+                className={navItem}
+                to="/login"
+              >
+                Login
+              </Link>
+            </ListItemText>
           </ListItem>
-        ))}
+        )}
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {user.email && (
+          <>
+            <ListItem button>
+              <ListItemIcon>
+                <DashboardIcon sx={{ color: " #3949AB" }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Link
+                  style={{ color: "#3949AB" }}
+                  className={navItem}
+                  to="/dashboard"
+                >
+                  Dashboard
+                </Link>
+              </ListItemText>
+            </ListItem>
+            <ListItem button onClick={logOut}>
+              <ListItemIcon>
+                <LogoutIcon sx={{ color: " #3949AB" }} />
+              </ListItemIcon>
+              <ListItemText>Log Out</ListItemText>
+            </ListItem>
+          </>
+        )}
       </List>
     </Box>
   );
@@ -117,11 +171,35 @@ const Header = () => {
                   Contact
                 </Link>
               </Button>
-              <Button variant="outlined" color="secondary" size="small">
-                <Link className={navItem} to="/login">
-                  Login
-                </Link>
-              </Button>
+              {user?.email ? (
+                <>
+                  <Button
+                    sx={{ mr: 2 }}
+                    variant="outlined"
+                    color="secondary"
+                    size="small"
+                  >
+                    <Link className={navItem} to="/dashboard">
+                      Dashboard
+                    </Link>
+                  </Button>
+                  <Button
+                    onClick={logOut}
+                    variant="outlined"
+                    color="secondary"
+                    size="small"
+                    sx={{ color: " #fff" }}
+                  >
+                    Log Out
+                  </Button>
+                </>
+              ) : (
+                <Button variant="outlined" color="secondary" size="small">
+                  <Link className={navItem} to="/login">
+                    Login
+                  </Link>
+                </Button>
+              )}
             </Box>
           </Toolbar>
         </AppBar>

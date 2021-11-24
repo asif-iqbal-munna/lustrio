@@ -4,11 +4,16 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { user, googleSignIn, loginUser } = useAuth();
+
+  const onSubmit = (data) => {
+    loginUser(data.email, data.password);
+  };
+
   return (
     <Container sx={{ my: 10 }}>
       <Box
@@ -57,13 +62,14 @@ const Login = () => {
               mt: 3,
             }}
           >
-            <Button sx={{ mb: 2 }} variant="contained" color="secondary">
+            <Button
+              onClick={googleSignIn}
+              sx={{ mb: 2 }}
+              variant="contained"
+              color="secondary"
+            >
               <GoogleIcon sx={{ mr: 2 }} />
               Sign In With Google
-            </Button>
-            <Button variant="contained" color="secondary">
-              <FacebookIcon sx={{ mr: 2 }} />
-              Sign In With Facebook
             </Button>
           </Box>
         </Box>
