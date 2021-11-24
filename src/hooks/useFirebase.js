@@ -139,7 +139,7 @@ const useFirebase = () => {
   const saveUser = (email, displayName, method) => {
     axios({
       method: method,
-      url: "http://localhost:8000/users",
+      url: "https://tranquil-cove-40150.herokuapp.com/users",
       data: {
         email,
         displayName,

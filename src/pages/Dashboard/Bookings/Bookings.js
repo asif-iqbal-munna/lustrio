@@ -19,7 +19,7 @@ const Bookings = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/bookings/${user.email}`)
+      .get(`https://tranquil-cove-40150.herokuapp.com/bookings/${user.email}`)
       .then((res) => setBookings(res.data));
   }, [user.email]);
 
