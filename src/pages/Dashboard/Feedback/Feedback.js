@@ -10,17 +10,19 @@ const Feedback = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:8000/feedbacks", data).then((res) => {
-      if (res.data?.insertedId) {
-        Swal.fire({
-          icon: "success",
-          title: "Hurrah!",
-          text: "Thanks For Your Valuable Feedback",
-          confirmButtonText: "Ok",
-        });
-        reset();
-      }
-    });
+    axios
+      .post("https://tranquil-cove-40150.herokuapp.com/feedbacks", data)
+      .then((res) => {
+        if (res.data?.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Hurrah!",
+            text: "Thanks For Your Valuable Feedback",
+            confirmButtonText: "Ok",
+          });
+          reset();
+        }
+      });
   };
 
   return (
