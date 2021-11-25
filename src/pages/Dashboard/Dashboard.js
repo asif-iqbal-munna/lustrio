@@ -22,8 +22,11 @@ import useAuth from "../../hooks/useAuth";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import PaymentIcon from "@mui/icons-material/Payment";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
-const drawerWidth = 180;
+const drawerWidth = 220;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -163,14 +166,49 @@ const Dashboard = () => {
             </ListItem>
           </Link>
           {admin && (
-            <Link style={{ textDecoration: "none" }} to="/dashboard/makeadmin">
-              <ListItem button>
-                <ListItemIcon>
-                  <AdminPanelSettingsIcon sx={{ color: " #3949AB" }} />
-                </ListItemIcon>
-                <ListItemText>Make Admin</ListItemText>
-              </ListItem>
-            </Link>
+            <>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/dashboard/makeadmin"
+              >
+                <ListItem button>
+                  <ListItemIcon>
+                    <AdminPanelSettingsIcon sx={{ color: " #3949AB" }} />
+                  </ListItemIcon>
+                  <ListItemText>Make Admin</ListItemText>
+                </ListItem>
+              </Link>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/dashboard/managebookings"
+              >
+                <ListItem button>
+                  <ListItemIcon>
+                    <ShoppingBagIcon sx={{ color: " #3949AB" }} />
+                  </ListItemIcon>
+                  <ListItemText>Manage Bookings</ListItemText>
+                </ListItem>
+              </Link>
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/dashboard/managehotels"
+              >
+                <ListItem button>
+                  <ListItemIcon>
+                    <ManageAccountsIcon sx={{ color: " #3949AB" }} />
+                  </ListItemIcon>
+                  <ListItemText>Manage Hotels</ListItemText>
+                </ListItem>
+              </Link>
+              <Link style={{ textDecoration: "none" }} to="/dashboard/addhotel">
+                <ListItem button>
+                  <ListItemIcon>
+                    <ApartmentIcon sx={{ color: " #3949AB" }} />
+                  </ListItemIcon>
+                  <ListItemText>Add Hotel</ListItemText>
+                </ListItem>
+              </Link>
+            </>
           )}
         </List>
         <Divider />

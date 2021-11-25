@@ -16,6 +16,9 @@ import Feedback from "./pages/Dashboard/Feedback/Feedback";
 import Pay from "./pages/Dashboard/Pay/Pay";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin.js/MakeAdmin";
 import AdminRoute from "./pages/Authentication/AdminRoute/AdminRoute";
+import ManageBookings from "./pages/Dashboard/ManageBookings/ManageBookings";
+import ManageHotels from "./pages/Dashboard/ManageHotels/ManageHotels";
+import AddHotel from "./pages/Dashboard/AddHotel/AddHotel";
 
 const theme = createTheme({
   palette: {
@@ -112,6 +115,30 @@ function App() {
                 element={
                   <AdminRoute>
                     <MakeAdmin />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/managebookings"
+                element={
+                  <AdminRoute>
+                    <ManageBookings />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/addhotel"
+                element={
+                  <AdminRoute>
+                    <AddHotel />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/managehotels"
+                element={
+                  <AdminRoute>
+                    <ManageHotels />
                   </AdminRoute>
                 }
               />
