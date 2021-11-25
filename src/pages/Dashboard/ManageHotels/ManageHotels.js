@@ -35,12 +35,18 @@ const ManageHotels = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://tranquil-cove-40150.herokuapp.com/hotels/${id}`).then((res) => {
-          if (res.data.deletedCount) {
-            Swal.fire("Deleted!", "Your booking has been deleted.", "success");
-          }
-          setFetch(false);
-        });
+        axios
+          .delete(`https://tranquil-cove-40150.herokuapp.com/hotels/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire(
+                "Deleted!",
+                "Your booking has been deleted.",
+                "success"
+              );
+            }
+            setFetch(false);
+          });
       }
     });
   };
@@ -65,7 +71,11 @@ const ManageHotels = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row" align="center">
-                  <img width="80px" src={row.img} alt=" " />
+                  <img
+                    width="80px"
+                    src={`data:image/png;base64,${row.img}`}
+                    alt=" "
+                  />
                 </TableCell>
                 <TableCell align="center">{row.name}</TableCell>
                 <TableCell align="center">{row.price}</TableCell>

@@ -11,7 +11,7 @@ const Feedback = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.img = user?.photoURL;
-    console.log(data);
+    parseInt(data.rating);
     axios
       .post("https://tranquil-cove-40150.herokuapp.com/feedbacks", data)
       .then((res) => {

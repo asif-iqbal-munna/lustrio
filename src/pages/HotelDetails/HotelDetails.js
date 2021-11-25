@@ -30,18 +30,24 @@ const HotelDetails = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.status = "pending";
-    data.hotelData = hotelData;
-    axios.post("https://tranquil-cove-40150.herokuapp.com/bookings", data).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          icon: "success",
-          title: "Congratulation",
-          text: "Your Booking Is Successful. Please Proceed Payment From Dashboard",
-          confirmButtonText: "Ok",
-        });
-      }
-      reset();
-    });
+    data.hotelData = {
+      name,
+      img,
+      price,
+    };
+    axios
+      .post("https://tranquil-cove-40150.herokuapp.com/bookings", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Congratulation",
+            text: "Your Booking Is Successful. Please Proceed Payment From Dashboard",
+            confirmButtonText: "Ok",
+          });
+        }
+        reset();
+      });
   };
 
   return (
@@ -67,7 +73,7 @@ const HotelDetails = () => {
                   <img
                     width="100%"
                     style={{ borderRadius: "10px" }}
-                    src={img}
+                    src={`data:image/png;base64,${img}`}
                     alt=""
                   />
                 </Box>

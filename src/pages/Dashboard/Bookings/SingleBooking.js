@@ -57,7 +57,7 @@ const SingleBooking = ({ booking, setFetch }) => {
             <CardMedia
               component="img"
               sx={{ width: 120 }}
-              image={img}
+              image={`data:image/png;base64,${img}`}
               alt="Live from space album cover"
             />
             <Box

@@ -32,7 +32,7 @@ const Header = () => {
       textDecoration: "none",
       padding: "6px 12px",
       marginRight: "6px",
-      fontSize: "16px",
+      fontSize: "14px",
       fontWeight: "700",
     },
     navIcon: {

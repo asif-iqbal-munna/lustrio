@@ -71,7 +71,11 @@ const ManageBookings = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  <img width="50px" src={row.hotelData.img} alt=" " />
+                  <img
+                    width="50px"
+                    src={`data:image/png;base64,${row.hotelData.img}`}
+                    alt=" "
+                  />
                 </TableCell>
                 <TableCell>{row.hotelData.name}</TableCell>
                 <TableCell>{row.email}</TableCell>

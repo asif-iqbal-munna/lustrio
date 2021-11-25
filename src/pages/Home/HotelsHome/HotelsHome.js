@@ -31,7 +31,7 @@ const HotelsHome = () => {
                 component="img"
                 alt="green iguana"
                 height="140"
-                image={hotel?.img}
+                image={`data:image/png;base64,${hotel.img}`}
               />
               <CardContent>
                 <Typography gutterBottom variant="h4" component="div">

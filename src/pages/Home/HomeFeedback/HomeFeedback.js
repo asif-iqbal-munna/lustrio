@@ -1,4 +1,3 @@
-import { FeedbackSharp } from "@mui/icons-material";
 import {
   Avatar,
   Container,
@@ -61,7 +60,7 @@ const HomeFeedback = () => {
       <Box>
         <Slider {...settings}>
           {feedbacks.map((feedback) => (
-            <Box sx={{ m: 2 }}>
+            <Box key={feedback._id} sx={{ m: 2 }}>
               <Box sx={{ p: 3, m: 3, backgroundColor: "#F7F7F7" }}>
                 <ListItem>
                   <ListItemAvatar>
