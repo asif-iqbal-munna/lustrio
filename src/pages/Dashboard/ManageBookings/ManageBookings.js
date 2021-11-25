@@ -18,7 +18,7 @@ const ManageBookings = () => {
   const [fetch, setFetch] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/bookings")
+      .get("https://tranquil-cove-40150.herokuapp.com/bookings")
       .then((res) => setHotels(res.data));
   }, [fetch]);
 
@@ -34,7 +34,7 @@ const ManageBookings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:8000/booking/${id}`).then((res) => {
+        axios.delete(`https://tranquil-cove-40150.herokuapp.com/booking/${id}`).then((res) => {
           if (res.data.deletedCount) {
             Swal.fire("Deleted!", "Your booking has been deleted.", "success");
           }
