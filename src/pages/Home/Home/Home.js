@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
 import HotelsHome from "../HotelsHome/HotelsHome";
 import HomeAbout from "../HomeAbout/HomeAbout";
+import HomeFeedback from "../HomeFeedback/HomeFeedback";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Category />
       <HomeAbout />
       <HotelsHome />
+      <HomeFeedback />
     </div>
   );
 };
