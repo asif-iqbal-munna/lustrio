@@ -18,6 +18,7 @@ firebaseInitialize();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
+  const [admin, setAdmin] = useState();
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
 
@@ -136,6 +137,12 @@ const useFirebase = () => {
       .finally(() => setLoading(false));
   };
 
+  useEffect(() => {
+    axios
+      .get(`https://tranquil-cove-40150.herokuapp.com/users/${user.email}`)
+      .then((res) => setAdmin(res.data.admin));
+  }, [user.email]);
+
   const saveUser = (email, displayName, method) => {
     axios({
       method: method,
@@ -155,6 +162,7 @@ const useFirebase = () => {
     logOut,
     error,
     loading,
+    admin,
   };
 };
 

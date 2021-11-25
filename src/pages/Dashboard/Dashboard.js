@@ -102,7 +102,7 @@ const Dashboard = () => {
     setOpen(false);
   };
 
-  const { logOut } = useAuth();
+  const { logOut, admin } = useAuth();
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -162,14 +162,16 @@ const Dashboard = () => {
               <ListItemText>Pay</ListItemText>
             </ListItem>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/dashboard/makeadmin">
-            <ListItem button>
-              <ListItemIcon>
-                <AdminPanelSettingsIcon sx={{ color: " #3949AB" }} />
-              </ListItemIcon>
-              <ListItemText>Make Admin</ListItemText>
-            </ListItem>
-          </Link>
+          {admin && (
+            <Link style={{ textDecoration: "none" }} to="/dashboard/makeadmin">
+              <ListItem button>
+                <ListItemIcon>
+                  <AdminPanelSettingsIcon sx={{ color: " #3949AB" }} />
+                </ListItemIcon>
+                <ListItemText>Make Admin</ListItemText>
+              </ListItem>
+            </Link>
+          )}
         </List>
         <Divider />
         <List>
