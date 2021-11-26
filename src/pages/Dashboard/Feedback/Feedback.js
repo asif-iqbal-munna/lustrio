@@ -1,4 +1,10 @@
-import { Button, Container, TextField } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
 import React from "react";
@@ -29,6 +35,9 @@ const Feedback = () => {
 
   return (
     <Container sx={{ my: 10 }}>
+      <Typography sx={{ mb: 2 }} gutterBottom align="center" variant="h3">
+        <Divider>Give Your Feedback</Divider>
+      </Typography>
       <Box
         sx={{
           backgroundColor: "rgba(8, 18, 41, 0.18)",

@@ -1,8 +1,9 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Divider, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
+import Zoom from "react-reveal/Zoom";
 
 const Category = () => {
   const useStyle = makeStyles({
@@ -70,117 +71,128 @@ const Category = () => {
 
   return (
     <Container sx={{ mt: 15 }}>
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6} sx={{ height: "450px" }}>
-          <Link style={{ textDecoration: "none" }} to="/contact">
-            <Box
-              sx={{ display: "flex", alignItems: "flex-end" }}
-              className={categoryBg1}
-            >
+      <Typography sx={{ mb: 3 }} gutterBottom align="center" variant="h3">
+        <Divider textAlign="left">Places</Divider>
+      </Typography>
+
+      <Zoom bottom cascade>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6} sx={{ height: "450px" }}>
+            <Link style={{ textDecoration: "none" }} to="/contact">
               <Box
-                sx={{
-                  background: "rgba(128, 128, 128, 0.70)",
-                  padding: "20px",
-                  color: "#fff",
-                  flexGrow: 1,
-                }}
+                sx={{ display: "flex", alignItems: "flex-end" }}
+                className={categoryBg1}
               >
-                <Typography
-                  variant="h4"
-                  sx={{ letterSpacing: "3px" }}
-                  align="center"
-                >
-                  Cox's Bazar
-                </Typography>
-              </Box>
-            </Box>
-          </Link>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Grid container direction="row" spacing={4} sx={{ height: "450px" }}>
-            <Grid item xs={12}>
-              <Link style={{ textDecoration: "none" }} to="/contact">
                 <Box
-                  sx={{ display: "flex", alignItems: "flex-end" }}
-                  className={categoryBg2}
+                  sx={{
+                    background: "rgba(128, 128, 128, 0.70)",
+                    padding: "20px",
+                    color: "#fff",
+                    flexGrow: 1,
+                  }}
                 >
-                  <Box
-                    sx={{
-                      background: "rgba(128, 128, 128, 0.70)",
-                      padding: "20px",
-                      color: "#fff",
-                      flexGrow: 1,
-                    }}
+                  <Typography
+                    variant="h4"
+                    sx={{ letterSpacing: "3px" }}
+                    align="center"
                   >
-                    <Typography
-                      variant="h4"
-                      sx={{ letterSpacing: "3px" }}
-                      align="center"
-                    >
-                      Sylhet
-                    </Typography>
-                  </Box>
+                    Cox's Bazar
+                  </Typography>
                 </Box>
-              </Link>
-            </Grid>
-            <Grid item xs={12}>
-              <Grid container spacing={4} sx={{ height: "100%" }}>
-                <Grid item xs={6}>
-                  <Link style={{ textDecoration: "none" }} to="/contact">
+              </Box>
+            </Link>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Grid
+              container
+              direction="row"
+              spacing={4}
+              sx={{ height: "450px" }}
+            >
+              <Grid item xs={12}>
+                <Link style={{ textDecoration: "none" }} to="/contact">
+                  <Box
+                    sx={{ display: "flex", alignItems: "flex-end" }}
+                    className={categoryBg2}
+                  >
                     <Box
-                      sx={{ display: "flex", alignItems: "flex-end" }}
-                      className={categoryBg3}
+                      sx={{
+                        background: "rgba(128, 128, 128, 0.70)",
+                        padding: "20px",
+                        color: "#fff",
+                        flexGrow: 1,
+                      }}
                     >
-                      <Box
-                        sx={{
-                          background: "rgba(128, 128, 128, 0.70)",
-                          padding: "20px",
-                          color: "#fff",
-                          flexGrow: 1,
-                        }}
+                      <Typography
+                        variant="h4"
+                        sx={{ letterSpacing: "3px" }}
+                        align="center"
                       >
-                        <Typography
-                          variant="h4"
-                          align="center"
-                          sx={{ letterSpacing: "3px" }}
-                        >
-                          Bandarban
-                        </Typography>
-                      </Box>
+                        Sylhet
+                      </Typography>
                     </Box>
-                  </Link>
-                </Grid>
-                <Grid item xs={6}>
-                  <Link style={{ textDecoration: "none" }} to="/contact">
-                    <Box
-                      sx={{ display: "flex", alignItems: "flex-end" }}
-                      className={categoryBg4}
-                    >
+                  </Box>
+                </Link>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container spacing={4} sx={{ height: "100%" }}>
+                  <Grid item xs={6}>
+                    <Link style={{ textDecoration: "none" }} to="/contact">
                       <Box
-                        sx={{
-                          background: "rgba(128, 128, 128, 0.70)",
-                          padding: "20px",
-                          color: "#fff",
-                          flexGrow: 1,
-                        }}
+                        sx={{ display: "flex", alignItems: "flex-end" }}
+                        className={categoryBg3}
                       >
-                        <Typography
-                          style={{ textDecoration: "none" }}
-                          variant="h4"
-                          align="center"
-                          sx={{ letterSpacing: "3px" }}
+                        <Box
+                          sx={{
+                            background: "rgba(128, 128, 128, 0.70)",
+                            padding: "20px",
+                            color: "#fff",
+                            flexGrow: 1,
+                          }}
                         >
-                          Dhaka
-                        </Typography>
+                          <Typography
+                            variant="h4"
+                            align="center"
+                            sx={{ letterSpacing: "3px" }}
+                          >
+                            Bandarban
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Box>
-                  </Link>
+                    </Link>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Link style={{ textDecoration: "none" }} to="/contact">
+                      <Box
+                        sx={{ display: "flex", alignItems: "flex-end" }}
+                        className={categoryBg4}
+                      >
+                        <Box
+                          sx={{
+                            background: "rgba(128, 128, 128, 0.70)",
+                            padding: "20px",
+                            color: "#fff",
+                            flexGrow: 1,
+                          }}
+                        >
+                          <Typography
+                            style={{ textDecoration: "none" }}
+                            variant="h4"
+                            align="center"
+                            sx={{ letterSpacing: "3px" }}
+                          >
+                            Dhaka
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Link>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Zoom>
     </Container>
   );
 };

@@ -1,4 +1,11 @@
-import { Button, Container, Input, TextField } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  Input,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
 import React, { useState } from "react";
@@ -20,20 +27,25 @@ const AddHotel = () => {
     formData.append("location", data.location);
     formData.append("description", data.description);
     formData.append("image", image);
-    axios.post("https://tranquil-cove-40150.herokuapp.com/hotels", formData).then((res) => {
-      if (res.data?.insertedId) {
-        Swal.fire({
-          icon: "success",
-          title: "Hurrah!",
-          text: data?.name + "Is Added To The Hotels",
-          confirmButtonText: "Cheers",
-        });
-        reset();
-      }
-    });
+    axios
+      .post("https://tranquil-cove-40150.herokuapp.com/hotels", formData)
+      .then((res) => {
+        if (res.data?.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Hurrah!",
+            text: data?.name + "Is Added To The Hotels",
+            confirmButtonText: "Cheers",
+          });
+          reset();
+        }
+      });
   };
   return (
     <Container sx={{ my: 10 }}>
+      <Typography sx={{ mb: 2 }} gutterBottom align="center" variant="h3">
+        <Divider>Add Hotels</Divider>
+      </Typography>
       <Box
         sx={{
           backgroundColor: "rgba(8, 18, 41, 0.18)",

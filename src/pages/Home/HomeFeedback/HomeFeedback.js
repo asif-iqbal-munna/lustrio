@@ -5,6 +5,7 @@ import {
   ListItemAvatar,
   ListItemText,
   Rating,
+  Divider,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -56,11 +57,14 @@ const HomeFeedback = () => {
     ],
   };
   return (
-    <Container>
+    <Container sx={{ my: 15 }}>
+      <Typography sx={{ mb:3 }} gutterBottom align="center" variant="h3">
+        <Divider textAlign="left">Clients Feedbacks</Divider>
+      </Typography>
       <Box>
         <Slider {...settings}>
           {feedbacks.map((feedback) => (
-            <Box key={feedback._id} sx={{ m: 2 }}>
+            <Box key={feedback._id} sx={{ mx: 2 }}>
               <Box sx={{ p: 3, m: 3, backgroundColor: "#F7F7F7" }}>
                 <ListItem>
                   <ListItemAvatar>

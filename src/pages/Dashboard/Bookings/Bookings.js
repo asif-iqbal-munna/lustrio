@@ -1,4 +1,4 @@
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, Divider } from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -18,8 +18,8 @@ const Bookings = () => {
 
   return (
     <Box sx={{ px: 2 }}>
-      <Typography gutterBottom align="center" variant="h3">
-        Your Bookings
+      <Typography sx={{ mb: 2 }} gutterBottom align="center" variant="h3">
+        <Divider>Your Bookings</Divider>
       </Typography>
       <Box>
         <Grid container spacing={4}>

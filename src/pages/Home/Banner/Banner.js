@@ -8,6 +8,7 @@ import banner1 from "../../../images/banner1.jpg";
 import banner2 from "../../../images/banner2.jpg";
 import banner3 from "../../../images/banner3.jpg";
 import { Box } from "@mui/system";
+import Fade from "react-reveal/Fade";
 
 const Banner = () => {
   const settings = {
@@ -54,82 +55,88 @@ const Banner = () => {
     <>
       <Slider {...settings}>
         <Grid container className={bannerBg1} alignItems="center">
-          <Box
-            style={{
-              paddingTop: "30vh",
-              margin: "2vh",
-              maxWidth: "500px",
-            }}
-          >
+          <Fade top big>
             <Box
               style={{
-                background: "rgba(128, 128, 128, 0.54)",
-                padding: "20px",
-                color: "#fff",
+                paddingTop: "30vh",
+                margin: "2vh",
+                maxWidth: "500px",
               }}
             >
-              <Typography variant="h2">Luxury Hotel</Typography>
-              <Typography variant="h4" sx={{ my: 2 }}>
-                Own Styles
-              </Typography>
-              <Typography variant="h1">30% OFF</Typography>
-              <Button variant="contained" sx={{ mt: 2 }}>
-                Book Now
-              </Button>
+              <Box
+                style={{
+                  background: "rgba(128, 128, 128, 0.54)",
+                  padding: "20px",
+                  color: "#fff",
+                }}
+              >
+                <Typography variant="h2">Luxury Hotel</Typography>
+                <Typography variant="h4" sx={{ my: 2 }}>
+                  Own Styles
+                </Typography>
+                <Typography variant="h1">30% OFF</Typography>
+                <Button variant="contained" sx={{ mt: 2 }}>
+                  Book Now
+                </Button>
+              </Box>
             </Box>
-          </Box>
+          </Fade>
         </Grid>
         <Grid container className={bannerBg2}>
-          <Box
-            style={{
-              paddingTop: "30vh",
-              margin: "2vh",
-              maxWidth: "500px",
-            }}
-          >
+          <Fade top big>
             <Box
               style={{
-                background: "rgba(128, 128, 128, 0.54)",
-                padding: "20px",
-                color: "#fff",
+                paddingTop: "30vh",
+                margin: "2vh",
+                maxWidth: "500px",
               }}
             >
-              <Typography variant="h2">Beach Resort</Typography>
-              <Typography variant="h4" sx={{ my: 2 }}>
-                Mega Offer
-              </Typography>
-              <Typography variant="h1">50% OFF</Typography>
-              <Button variant="contained" sx={{ mt: 2 }}>
-                Book Now
-              </Button>
+              <Box
+                style={{
+                  background: "rgba(128, 128, 128, 0.54)",
+                  padding: "20px",
+                  color: "#fff",
+                }}
+              >
+                <Typography variant="h2">Beach Resort</Typography>
+                <Typography variant="h4" sx={{ my: 2 }}>
+                  Mega Offer
+                </Typography>
+                <Typography variant="h1">50% OFF</Typography>
+                <Button variant="contained" sx={{ mt: 2 }}>
+                  Book Now
+                </Button>
+              </Box>
             </Box>
-          </Box>
+          </Fade>
         </Grid>
         <Grid container className={bannerBg3}>
-          <Box
-            style={{
-              paddingTop: "30vh",
-              margin: "2vh",
-              maxWidth: "500px",
-            }}
-          >
+          <Fade top big>
             <Box
               style={{
-                background: "rgba(128, 128, 128, 0.54)",
-                padding: "20px",
-                color: "#fff",
+                paddingTop: "30vh",
+                margin: "2vh",
+                maxWidth: "500px",
               }}
             >
-              <Typography variant="h2">Motel Front Pool</Typography>
-              <Typography variant="h4" sx={{ my: 2 }}>
-                Our Class
-              </Typography>
-              <Typography variant="h1">45% OFF</Typography>
-              <Button variant="contained" sx={{ mt: 2 }}>
-                Book Now
-              </Button>
+              <Box
+                style={{
+                  background: "rgba(128, 128, 128, 0.54)",
+                  padding: "20px",
+                  color: "#fff",
+                }}
+              >
+                <Typography variant="h2">Motel Front Pool</Typography>
+                <Typography variant="h4" sx={{ my: 2 }}>
+                  Our Class
+                </Typography>
+                <Typography variant="h1">45% OFF</Typography>
+                <Button variant="contained" sx={{ mt: 2 }}>
+                  Book Now
+                </Button>
+              </Box>
             </Box>
-          </Box>
+          </Fade>
         </Grid>
       </Slider>
     </>

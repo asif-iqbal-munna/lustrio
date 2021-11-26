@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Shared/Header/Header";
+import Footer from "../Shared/Footer/Footer";
 
 const Contact = () => {
   return (
@@ -8,6 +9,7 @@ const Contact = () => {
       <div>
         <h1>Contact</h1>
       </div>
+      <Footer />
     </>
   );
 };

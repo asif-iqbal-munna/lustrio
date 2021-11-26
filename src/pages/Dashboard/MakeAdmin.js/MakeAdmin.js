@@ -1,4 +1,10 @@
-import { Button, Container, TextField } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
 import React from "react";
@@ -9,21 +15,26 @@ const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     const user = { email: data.email };
-    axios.put("https://tranquil-cove-40150.herokuapp.com/users/admin", user).then((res) => {
-      if (res.data?.modifiedCount) {
-        Swal.fire({
-          icon: "success",
-          title: "Bravo!",
-          text: `${data.email} Has Been Given The Admin Role`,
-          confirmButtonText: "Cheers",
-        });
-      }
-      reset();
-    });
+    axios
+      .put("https://tranquil-cove-40150.herokuapp.com/users/admin", user)
+      .then((res) => {
+        if (res.data?.modifiedCount) {
+          Swal.fire({
+            icon: "success",
+            title: "Bravo!",
+            text: `${data.email} Has Been Given The Admin Role`,
+            confirmButtonText: "Cheers",
+          });
+        }
+        reset();
+      });
   };
 
   return (
     <Container sx={{ my: 10 }}>
+      <Typography sx={{ mb: 2 }} gutterBottom align="center" variant="h3">
+        <Divider>Make Admin</Divider>
+      </Typography>
       <Box
         sx={{
           backgroundColor: "rgba(8, 18, 41, 0.18)",

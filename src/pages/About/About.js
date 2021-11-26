@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
 
 const About = () => {
@@ -8,6 +9,7 @@ const About = () => {
       <div>
         <h1>About</h1>
       </div>
+      <Footer />
     </>
   );
 };

@@ -5,6 +5,7 @@ import {
   CardContent,
   CardMedia,
   Container,
+  Divider,
   Grid,
   Typography,
 } from "@mui/material";
@@ -22,8 +23,11 @@ const HotelsHome = () => {
   }, []);
 
   return (
-    <Container>
-      <Grid container sx={{ mt: 15 }} spacing={4}>
+    <Container sx={{ mt: 15 }}>
+      <Typography sx={{ mb: 3 }} gutterBottom align="center" variant="h3">
+        <Divider textAlign="left">Featured Hotels</Divider>
+      </Typography>
+      <Grid container spacing={4}>
         {hotels.slice(0, 8).map((hotel) => (
           <Grid key={hotel?._id} item xs={6} sm={4} md={3}>
             <Card sx={{ maxWidth: 345 }}>

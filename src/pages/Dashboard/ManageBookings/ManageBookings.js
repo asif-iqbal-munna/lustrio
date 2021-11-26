@@ -1,5 +1,6 @@
 import {
   Button,
+  Divider,
   Paper,
   Table,
   TableBody,
@@ -7,6 +8,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
@@ -52,6 +54,9 @@ const ManageBookings = () => {
 
   return (
     <Box sx={{ px: 2 }}>
+      <Typography sx={{ mb: 2 }} gutterBottom align="center" variant="h3">
+        <Divider>Manage Bookings</Divider>
+      </Typography>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
@@ -61,7 +66,7 @@ const ManageBookings = () => {
               <TableCell>Email</TableCell>
               <TableCell>Status</TableCell>
               <TableCell>Cancel</TableCell>
-              <TableCell>Payment</TableCell>
+              <TableCell>Payment Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -89,15 +94,7 @@ const ManageBookings = () => {
                     Cancel
                   </Button>
                 </TableCell>
-                <TableCell>
-                  {row?.paid ? (
-                    "Paid"
-                  ) : (
-                    <Button variant="contained" size="small">
-                      Pay
-                    </Button>
-                  )}
-                </TableCell>
+                <TableCell>{row?.paid ? "Paid" : "Not Paid"}</TableCell>
               </TableRow>
             ))}
           </TableBody>
