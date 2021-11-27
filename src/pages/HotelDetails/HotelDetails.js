@@ -9,7 +9,7 @@ import {
 import { Box } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Header from "../Shared/Header/Header";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
@@ -26,10 +26,12 @@ const HotelDetails = () => {
   }, [id]);
   const { img, name, price, location, description } = hotelData;
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.status = "pending";
+    data.paid = false;
     data.hotelData = {
       name,
       img,
@@ -42,9 +44,10 @@ const HotelDetails = () => {
           Swal.fire({
             icon: "success",
             title: "Congratulation",
-            text: "Your Booking Is Successful. Please Proceed Payment From Dashboard",
+            text: "Your Booking Is Successful. Please Proceed To Payment",
             confirmButtonText: "Ok",
           });
+          navigate("/dashboard");
         }
         reset();
       });

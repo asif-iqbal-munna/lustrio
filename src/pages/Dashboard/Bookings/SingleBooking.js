@@ -12,6 +12,7 @@ import { Box } from "@mui/system";
 import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SingleBooking = ({ booking, setFetch }) => {
   const { name, price, img } = booking.hotelData;
@@ -106,9 +107,22 @@ const SingleBooking = ({ booking, setFetch }) => {
                     Cancel
                   </Button>
                   <Box>
-                    <Button variant="contained" color="secondary" size="small">
-                      Pay
-                    </Button>
+                    {booking?.paid ? (
+                      <Button>Paid</Button>
+                    ) : (
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={`/dashboard/payment/${booking._id}`}
+                      >
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          size="small"
+                        >
+                          Pay
+                        </Button>
+                      </Link>
+                    )}
                   </Box>
                 </Box>
               </CardContent>

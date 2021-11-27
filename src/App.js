@@ -109,7 +109,7 @@ function App() {
             >
               <Route path="/dashboard" element={<Bookings />} />
               <Route path="/dashboard/feedback" element={<Feedback />} />
-              <Route path="/dashboard/pay" element={<Pay />} />
+              <Route path="/dashboard/payment/:bookingId" element={<Pay />} />
               <Route
                 path="/dashboard/makeadmin"
                 element={

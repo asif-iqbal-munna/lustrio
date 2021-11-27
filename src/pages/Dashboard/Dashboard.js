@@ -20,7 +20,6 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import ReviewsIcon from "@mui/icons-material/Reviews";
-import PaymentIcon from "@mui/icons-material/Payment";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
@@ -155,14 +154,6 @@ const Dashboard = () => {
                 <ReviewsIcon sx={{ color: " #3949AB" }} />
               </ListItemIcon>
               <ListItemText>Feedback</ListItemText>
-            </ListItem>
-          </Link>
-          <Link style={{ textDecoration: "none" }} to="/dashboard/pay">
-            <ListItem button>
-              <ListItemIcon>
-                <PaymentIcon sx={{ color: " #3949AB" }} />
-              </ListItemIcon>
-              <ListItemText>Pay</ListItemText>
             </ListItem>
           </Link>
           {admin && (

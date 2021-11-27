@@ -6,6 +6,7 @@ import {
   CardMedia,
   Container,
   Divider,
+  Skeleton,
   Grid,
   Typography,
 } from "@mui/material";
@@ -31,38 +32,46 @@ const HotelsHome = () => {
       <Grid container spacing={4}>
         {hotels.slice(0, 8).map((hotel) => (
           <Grid key={hotel?._id} item xs={6} sm={4} md={3}>
-            <Zoom bottom cascade>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  component="img"
-                  alt="green iguana"
-                  height="140"
-                  image={`data:image/png;base64,${hotel.img}`}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h4" component="div">
-                    {hotel?.name}
-                  </Typography>
-                  <Typography variant="body2" color="h3">
-                    Starts from
-                    <Box component="span" sx={{ fontSize: "22px" }}>
-                      &nbsp; ${hotel?.price}
-                    </Box>{" "}
-                    /night
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Link
-                    style={{ textDecoration: "none" }}
-                    to={`/hotels/${hotel?._id}`}
-                  >
-                    <Button variant="contained" size="small">
-                      Book Now
-                    </Button>
-                  </Link>
-                </CardActions>
-              </Card>
-            </Zoom>
+            {!hotel ? (
+              <Box>
+                <Skeleton variant="text" />
+                <Skeleton variant="rectangular" width={210} height={118} />{" "}
+                <Skeleton variant="rectangular" width={40} height={40} />
+              </Box>
+            ) : (
+              <Zoom bottom cascade>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardMedia
+                    component="img"
+                    alt="green iguana"
+                    height="140"
+                    image={`data:image/png;base64,${hotel.img}`}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h4" component="div">
+                      {hotel?.name}
+                    </Typography>
+                    <Typography variant="body2" color="h3">
+                      Starts from
+                      <Box component="span" sx={{ fontSize: "22px" }}>
+                        &nbsp; ${hotel?.price}
+                      </Box>{" "}
+                      /night
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={`/hotels/${hotel?._id}`}
+                    >
+                      <Button variant="contained" size="small">
+                        Book Now
+                      </Button>
+                    </Link>
+                  </CardActions>
+                </Card>
+              </Zoom>
+            )}
           </Grid>
         ))}
       </Grid>
