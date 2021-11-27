@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  getIdToken,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -20,26 +21,19 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [admin, setAdmin] = useState();
   const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState("");
   const auth = getAuth();
 
   const registerUser = (name, email, password, navigate) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
         saveUser(email, name, "post");
         updateProfile(auth.currentUser, {
           displayName: name,
         })
-          .then(() => {
-            // Profile updated!
-            // ...
-          })
-          .catch((error) => {
-            // An error occurred
-            // ...
-          });
+          .then(() => {})
+          .catch((error) => {});
         Swal.fire({
           icon: "success",
           title: "Yoo!",
@@ -64,7 +58,6 @@ const useFirebase = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
         Swal.fire({
           icon: "success",
           title: "Yoo!",
@@ -121,6 +114,7 @@ const useFirebase = () => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        getIdToken(user).then((idToken) => setToken(idToken));
       } else {
         setUser({});
       }
@@ -161,6 +155,7 @@ const useFirebase = () => {
     user,
     logOut,
     error,
+    token,
     loading,
     admin,
   };

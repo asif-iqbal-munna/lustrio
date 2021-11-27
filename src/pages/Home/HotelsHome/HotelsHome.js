@@ -13,6 +13,7 @@ import { Box } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Zoom from "react-reveal/Zoom";
 
 const HotelsHome = () => {
   const [hotels, setHotels] = useState([]);
@@ -30,36 +31,38 @@ const HotelsHome = () => {
       <Grid container spacing={4}>
         {hotels.slice(0, 8).map((hotel) => (
           <Grid key={hotel?._id} item xs={6} sm={4} md={3}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image={`data:image/png;base64,${hotel.img}`}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h4" component="div">
-                  {hotel?.name}
-                </Typography>
-                <Typography variant="body2" color="h3">
-                  Starts from
-                  <Box component="span" sx={{ fontSize: "22px" }}>
-                    &nbsp; ${hotel?.price}
-                  </Box>{" "}
-                  /night
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Link
-                  style={{ textDecoration: "none" }}
-                  to={`/hotels/${hotel?._id}`}
-                >
-                  <Button variant="contained" size="small">
-                    Book Now
-                  </Button>
-                </Link>
-              </CardActions>
-            </Card>
+            <Zoom bottom cascade>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  component="img"
+                  alt="green iguana"
+                  height="140"
+                  image={`data:image/png;base64,${hotel.img}`}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h4" component="div">
+                    {hotel?.name}
+                  </Typography>
+                  <Typography variant="body2" color="h3">
+                    Starts from
+                    <Box component="span" sx={{ fontSize: "22px" }}>
+                      &nbsp; ${hotel?.price}
+                    </Box>{" "}
+                    /night
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`/hotels/${hotel?._id}`}
+                  >
+                    <Button variant="contained" size="small">
+                      Book Now
+                    </Button>
+                  </Link>
+                </CardActions>
+              </Card>
+            </Zoom>
           </Grid>
         ))}
       </Grid>

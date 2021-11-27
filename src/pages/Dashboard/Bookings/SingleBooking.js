@@ -28,12 +28,18 @@ const SingleBooking = ({ booking, setFetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://tranquil-cove-40150.herokuapp.com/booking/${id}`).then((res) => {
-          if (res.data.deletedCount) {
-            Swal.fire("Deleted!", "Your booking has been deleted.", "success");
-          }
-          setFetch(false);
-        });
+        axios
+          .delete(`https://tranquil-cove-40150.herokuapp.com/booking/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire(
+                "Deleted!",
+                "Your booking has been deleted.",
+                "success"
+              );
+            }
+            setFetch(false);
+          });
       }
     });
   };

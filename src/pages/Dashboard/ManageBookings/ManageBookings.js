@@ -55,51 +55,51 @@ const ManageBookings = () => {
   return (
     <Box sx={{ px: 2 }}>
       <Typography sx={{ mb: 2 }} gutterBottom align="center" variant="h3">
-        <Divider>Manage Bookings</Divider>
+          <Divider>Manage Bookings</Divider>
       </Typography>
-      <TableContainer component={Paper}>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell></TableCell>
-              <TableCell>Hotel</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Cancel</TableCell>
-              <TableCell>Payment Status</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {hotels.map((row) => (
-              <TableRow
-                key={row._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  <img
-                    width="50px"
-                    src={`data:image/png;base64,${row.hotelData.img}`}
-                    alt=" "
-                  />
-                </TableCell>
-                <TableCell>{row.hotelData.name}</TableCell>
-                <TableCell>{row.email}</TableCell>
-                <TableCell>{row.status}</TableCell>
-                <TableCell>
-                  <Button
-                    onClick={() => handleDeleteBooking(row._id)}
-                    variant="outlined"
-                    size="small"
-                  >
-                    Cancel
-                  </Button>
-                </TableCell>
-                <TableCell>{row?.paid ? "Paid" : "Not Paid"}</TableCell>
+        <TableContainer component={Paper}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell>Hotel</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Status</TableCell>
+                <TableCell>Cancel</TableCell>
+                <TableCell>Payment Status</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {hotels.map((row) => (
+                <TableRow
+                  key={row._id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    <img
+                      width="50px"
+                      src={`data:image/png;base64,${row.hotelData.img}`}
+                      alt=" "
+                    />
+                  </TableCell>
+                  <TableCell>{row.hotelData.name}</TableCell>
+                  <TableCell>{row.email}</TableCell>
+                  <TableCell>{row.status}</TableCell>
+                  <TableCell>
+                    <Button
+                      onClick={() => handleDeleteBooking(row._id)}
+                      variant="outlined"
+                      size="small"
+                    >
+                      Cancel
+                    </Button>
+                  </TableCell>
+                  <TableCell>{row?.paid ? "Paid" : "Not Paid"}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
     </Box>
   );
 };

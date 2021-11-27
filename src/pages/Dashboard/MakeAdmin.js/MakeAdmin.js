@@ -10,24 +10,32 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
+  const { token } = useAuth();
+
+  const authAxios = axios.create({
+    baseURL: "https://tranquil-cove-40150.herokuapp.com/",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  
   const onSubmit = (data) => {
     const user = { email: data.email };
-    axios
-      .put("https://tranquil-cove-40150.herokuapp.com/users/admin", user)
-      .then((res) => {
-        if (res.data?.modifiedCount) {
-          Swal.fire({
-            icon: "success",
-            title: "Bravo!",
-            text: `${data.email} Has Been Given The Admin Role`,
-            confirmButtonText: "Cheers",
-          });
-        }
-        reset();
-      });
+    authAxios.put("https://tranquil-cove-40150.herokuapp.com/users/admin", user).then((res) => {
+      if (res.data?.modifiedCount) {
+        Swal.fire({
+          icon: "success",
+          title: "Bravo!",
+          text: `${data.email} Has Been Given The Admin Role`,
+          confirmButtonText: "Cheers",
+        });
+      }
+      reset();
+    });
   };
 
   return (

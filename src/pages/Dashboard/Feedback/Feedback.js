@@ -36,54 +36,54 @@ const Feedback = () => {
   return (
     <Container sx={{ my: 10 }}>
       <Typography sx={{ mb: 2 }} gutterBottom align="center" variant="h3">
-        <Divider>Give Your Feedback</Divider>
+          <Divider>Give Your Feedback</Divider>
       </Typography>
-      <Box
-        sx={{
-          backgroundColor: "rgba(8, 18, 41, 0.18)",
-          padding: "30px",
-          margin: "0 auto",
-          borderRadius: "10px",
-          maxWidth: "500px",
-        }}
-      >
-        <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-          <TextField
-            label="Name"
-            required
-            type="text"
-            fullWidth
-            margin="dense"
-            defaultValue={user.displayName}
-            variant="filled"
-            {...register("name")}
-          />
-          <TextField
-            label="Rating"
-            required
-            type="number"
-            fullWidth
-            margin="dense"
-            variant="filled"
-            helperText="Rating Upto 5"
-            {...register("rating", { max: 5 })}
-          />
-          <TextField
-            label="Your Feedback"
-            required
-            type="text"
-            fullWidth
-            multiline
-            rows={4}
-            margin="dense"
-            variant="filled"
-            {...register("feedback")}
-          />
-          <Button variant="contained" sx={{ mt: 2 }} type="submit">
-            Add Review
-          </Button>
+        <Box
+          sx={{
+            backgroundColor: "rgba(8, 18, 41, 0.18)",
+            padding: "30px",
+            margin: "0 auto",
+            borderRadius: "10px",
+            maxWidth: "500px",
+          }}
+        >
+          <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+            <TextField
+              label="Name"
+              required
+              type="text"
+              fullWidth
+              margin="dense"
+              defaultValue={user.displayName}
+              variant="filled"
+              {...register("name")}
+            />
+            <TextField
+              label="Rating"
+              required
+              type="number"
+              fullWidth
+              margin="dense"
+              variant="filled"
+              helperText="Rating Upto 5"
+              {...register("rating", { max: 5 })}
+            />
+            <TextField
+              label="Your Feedback"
+              required
+              type="text"
+              fullWidth
+              multiline
+              rows={4}
+              margin="dense"
+              variant="filled"
+              {...register("feedback")}
+            />
+            <Button variant="contained" sx={{ mt: 2 }} type="submit">
+              Add Review
+            </Button>
+          </Box>
         </Box>
-      </Box>
     </Container>
   );
 };

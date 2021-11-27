@@ -18,7 +18,7 @@ const Footer = () => {
       <Box sx={{ p: 5 }} style={{ backgroundColor: "#009688", color: "#fff" }}>
         <Container>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <Typography variant="h4">Customer services</Typography>
               <MenuList>
                 <MenuItem>FAQ</MenuItem>
@@ -27,7 +27,7 @@ const Footer = () => {
                 <MenuItem>Track Order</MenuItem>
               </MenuList>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <Typography variant="h4">Information</Typography>
               <MenuList>
                 <MenuItem>Mu Account</MenuItem>
@@ -35,7 +35,7 @@ const Footer = () => {
                 <MenuItem>Student Discount</MenuItem>
               </MenuList>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <Typography variant="h5">About Us</Typography>
               <MenuList>
                 <MenuItem>Careers</MenuItem>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <MenuItem>Corporate</MenuItem>
               </MenuList>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <Typography variant="h5">Contact Us</Typography>
               <MenuList>
                 <MenuItem>
@@ -71,8 +71,10 @@ const Footer = () => {
           </Grid>
         </Container>
       </Box>
-      <Box sx={{ p: 3 }} style={{ backgroundColor: "#000", color: "#fff" }}>
-        Copyright © 2021 || Developed By{" "}
+      <Box sx={{ p: 1 }} style={{ backgroundColor: "#000", color: "#fff" }}>
+        <Typography variant="caption">
+          Copyright © 2021 || Developed By{" "}
+        </Typography>
         <a
           target="_blank"
           rel="noreferrer"
