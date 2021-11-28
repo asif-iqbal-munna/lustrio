@@ -24,6 +24,15 @@ const ManageBookings = () => {
       .then((res) => setBookings(res.data));
   }, [fetch]);
 
+  const handleRefund = () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Wait!",
+      text: "Refund Will Be Processed ASAP",
+      confirmButtonText: "Ok",
+    });
+  };
+
   const handleDeleteBooking = (id) => {
     setFetch(true);
     Swal.fire({
@@ -86,13 +95,23 @@ const ManageBookings = () => {
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.status}</TableCell>
                 <TableCell>
-                  <Button
-                    onClick={() => handleDeleteBooking(row._id)}
-                    variant="outlined"
-                    size="small"
-                  >
-                    Cancel
-                  </Button>
+                  {row.status === "approved" ? (
+                    <Button
+                      onClick={handleRefund}
+                      variant="outlined"
+                      size="small"
+                    >
+                      Refund
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={() => handleDeleteBooking(row._id)}
+                      variant="outlined"
+                      size="small"
+                    >
+                      Cancel
+                    </Button>
+                  )}
                 </TableCell>
                 <TableCell>{row?.paid ? "Paid" : "Not Paid"}</TableCell>
               </TableRow>

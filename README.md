@@ -1,71 +1,44 @@
-# Getting Started with Create React App
+# Lustrio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lustrio is a hotel booking website. It is almost 95% real functionality of a hotel booking website where customers can book pay for the hotel rooms.
 
-## Available Scripts
+## [Live Website Link](https://lustrio-2d916.web.app/)
 
-In the project directory, you can run:
+### [Server Side Code Link](https://github.com/asif-iqbal-munna/lustrio-server)
 
-### `yarn start`
+# Technologies and packages used in this application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Frontend Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React
+- React Router Dom @6
+- Stripe Payment Gateway
+- Context API
+- Firebase
+- Axios
+- React Hook Form
+- Material UI
+- react Reveal
+- react Slick
+- Sweetalert2
 
-### `yarn test`
+## Backend Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node
+- Express
+- MongoDB database
+- Stripe
+- Firebase Admin
+- Express File-upload (Local Image Upload)
+- Cors
+- Dotenv
 
-### `yarn build`
+# Some functionalities of the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# lustrio" 
+- This application has firebase authentication where users can manually register and log in to visit protected routes and also has a google sign-in method with a popup.
+- All CURD operations are done under the Axios HTTP library and also has JWT token verification middleware in the backend.
+- Image upload system from the local device implemented with base64 and in the backend, it is received by the express file-upload library.
+- It has a stripe payment gateway integrated under testing mode.
+- Forms are implemented with React-hook-form designed with MUI.
+- Logged in users can book a hotel, pay for it and also they can add reviews and cancel the booking.
+- It also has Admin Routes which are only accessible to the admin where admin can make another user admin, manage bookings, manage hotels.
