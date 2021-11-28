@@ -42,3 +42,7 @@ Lustrio is a hotel booking website. It is almost 95% real functionality of a hot
 - Forms are implemented with React-hook-form designed with MUI.
 - Logged in users can book a hotel, pay for it and also they can add reviews and cancel the booking.
 - It also has Admin Routes which are only accessible to the admin where admin can make another user admin, manage bookings, manage hotels.
+
+# Test Admin Routes With
+Admin Email: admintest@gmail.com
+Admin Password: admintest
