@@ -22,6 +22,7 @@ const AdminRoute = ({ children }) => {
       </Box>
     );
   }
+
   if (!user.email || !admin) {
     return <Navigate to="/" state={{ from: location }} />;
   }
