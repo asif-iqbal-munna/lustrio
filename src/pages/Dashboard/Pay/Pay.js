@@ -15,7 +15,7 @@ const Pay = () => {
   const { bookingId } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/booking/${bookingId}`)
+      .get(`https://tranquil-cove-40150.herokuapp.com/booking/${bookingId}`)
       .then((res) => setBooking(res.data));
   }, [bookingId]);
   return (

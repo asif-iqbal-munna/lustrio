@@ -16,7 +16,7 @@ const CheckoutForm = ({ booking }) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8000/create-payment-intent", {
+      .post("https://tranquil-cove-40150.herokuapp.com/create-payment-intent", {
         price,
       })
       .then((res) => setClientSecret(res.data.clientSecret));
@@ -67,7 +67,7 @@ const CheckoutForm = ({ booking }) => {
       });
     } else {
       setProcessing(false);
-      axios.put(`http://localhost:8000/booking/${booking._id}`).then((res) => {
+      axios.put(`https://tranquil-cove-40150.herokuapp.com/booking/${booking._id}`).then((res) => {
         if (res.data?.modifiedCount) {
           Swal.fire({
             icon: "success",
