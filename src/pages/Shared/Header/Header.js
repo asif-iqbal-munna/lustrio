@@ -22,7 +22,6 @@ import useAuth from "../../../hooks/useAuth";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import ContactsIcon from "@mui/icons-material/Contacts";
-import FeedIcon from "@mui/icons-material/Feed";
 
 const Header = () => {
   const theme = useTheme();
@@ -66,25 +65,11 @@ const Header = () => {
       <List>
         <ListItem button>
           <ListItemIcon sx={{ minWidth: "30px" }}>
-            <FeedIcon sx={{ color: " #3949AB" }} />
-          </ListItemIcon>
-          <ListItemText>
-            <Link style={{ color: "#3949AB" }} className={navItem} to="/about">
-              About
-            </Link>
-          </ListItemText>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon sx={{ minWidth: "30px" }}>
             <ContactsIcon sx={{ color: " #3949AB" }} />
           </ListItemIcon>
           <ListItemText>
-            <Link
-              style={{ color: "#3949AB" }}
-              className={navItem}
-              to="/contact"
-            >
-              Contact
+            <Link style={{ color: "#3949AB" }} className={navItem} to="/hotels">
+              Hotels
             </Link>
           </ListItemText>
         </ListItem>
@@ -162,13 +147,8 @@ const Header = () => {
             </Typography>
             <Box sx={{ display: "flex" }} className={navMenu}>
               <Button>
-                <Link className={navItem} to="/about">
-                  About
-                </Link>
-              </Button>
-              <Button>
-                <Link className={navItem} to="/contact">
-                  Contact
+                <Link className={navItem} to="/Hotels">
+                  Hotels
                 </Link>
               </Button>
               {user?.email ? (

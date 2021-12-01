@@ -46,6 +46,7 @@ const CheckoutForm = ({ booking }) => {
         confirmButtonText: "Try Again",
       });
     } else {
+      console.log(paymentMethod);
     }
     // confirm payment intent
     const { paymentIntent, error: intentError } =
@@ -66,17 +67,20 @@ const CheckoutForm = ({ booking }) => {
         confirmButtonText: "Try Again",
       });
     } else {
+      console.log(paymentIntent);
       setProcessing(false);
-      axios.put(`https://tranquil-cove-40150.herokuapp.com/booking/${booking._id}`).then((res) => {
-        if (res.data?.modifiedCount) {
-          Swal.fire({
-            icon: "success",
-            title: "Congrats!",
-            text: "Your Payment Is Successful",
-            confirmButtonText: "Enjoy",
-          });
-        }
-      });
+      axios
+        .put(`https://tranquil-cove-40150.herokuapp.com/booking/${booking._id}`)
+        .then((res) => {
+          if (res.data?.modifiedCount) {
+            Swal.fire({
+              icon: "success",
+              title: "Congrats!",
+              text: "Your Payment Is Successful",
+              confirmButtonText: "Enjoy",
+            });
+          }
+        });
     }
   };
 

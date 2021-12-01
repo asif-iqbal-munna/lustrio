@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home/Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { teal, indigo } from "@mui/material/colors";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
 import HotelDetails from "./pages/HotelDetails/HotelDetails";
 import Login from "./pages/Authentication/Login/Login";
 import Register from "./pages/Authentication/Register/Register";
@@ -19,6 +17,7 @@ import AdminRoute from "./pages/Authentication/AdminRoute/AdminRoute";
 import ManageBookings from "./pages/Dashboard/ManageBookings/ManageBookings";
 import ManageHotels from "./pages/Dashboard/ManageHotels/ManageHotels";
 import AddHotel from "./pages/Dashboard/AddHotel/AddHotel";
+import Hotels from "./pages/Hotels/Hotels";
 
 const theme = createTheme({
   palette: {
@@ -87,8 +86,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/hotels" element={<Hotels />} />
             <Route
               path="/hotels/:id"
               element={

@@ -14,6 +14,7 @@ import Header from "../Shared/Header/Header";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import Footer from "../Shared/Footer/Footer";
 
 const HotelDetails = () => {
   const { id } = useParams();
@@ -68,7 +69,7 @@ const HotelDetails = () => {
           <CircularProgress />
         </Box>
       ) : (
-        <Container sx={{ mt: 10 }}>
+        <Container sx={{ my: 10 }}>
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
               <Box>
@@ -156,6 +157,7 @@ const HotelDetails = () => {
           </Grid>
         </Container>
       )}
+      <Footer />
     </>
   );
 };
